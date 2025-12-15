@@ -6,7 +6,7 @@ RM = @rm -rf
 
 CC := @cc
 NASM := @nasm
-NFLAGS := -f elf64
+NFLAGS := -f elf64 -g -F dwarf
 AR := @ar
 CFLAGS := -Wall -Wextra -Werror -g3
 
