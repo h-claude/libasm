@@ -18,7 +18,6 @@ SRCFILES = src/ft_strlen.s \
 	src/ft_write.s \
 	src/ft_read.s \
 	src/ft_strdup.s \
-	src/test.s
 
 all : $(NAME)
 
