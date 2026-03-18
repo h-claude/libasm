@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 22:58:07 by hclaude           #+#    #+#             */
-/*   Updated: 2025/12/19 17:47:59 by hclaude          ###   ########.fr       */
+/*   Updated: 2026/03/18 12:59:29 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(void)
 {
 	char str[256];
 	char buffer[100];
+	printf("Test with a wrong fd for read (should return -1): %d\n", ft_read(-1, buffer, sizeof(buffer)));
 	int bytes_read = ft_read(0, buffer, sizeof(buffer) - 1);
 	if (bytes_read >= 0)
 	{
