@@ -4,10 +4,10 @@ OBJDIR = obj
 
 RM = @rm -rf
 
-CC := @cc
-NASM := @nasm
+CC := cc
+NASM := nasm
 NFLAGS := -f elf64 -g -F dwarf
-AR := @ar
+AR := ar
 CFLAGS := -Wall -Wextra -Werror -g3
 
 OBJFILES = $(patsubst src/%.s,$(OBJDIR)/%.o,$(SRCFILES))

@@ -1,4 +1,5 @@
 ; recreate write function in asm
+extern __errno_location
 
 %define SYS_WRITE_64 1
 %define STDOUT 1
@@ -16,4 +17,13 @@ global ft_write
 section .text
 ft_write:
 	MACRO_SYS_WRITE_64 RDI,RSI,RDX
+	test RAX, RAX
+	js .error
+	ret
+.error
+	neg RAX
+	push RAX
+	call __errno_location wrt ..plt
+	pop QWORD [RAX]
+	mov RAX, -1
 	ret
