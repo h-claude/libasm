@@ -20,7 +20,7 @@ ft_write:
 	test RAX, RAX
 	js .error
 	ret
-.error
+.error:
 	neg RAX
 	push RAX
 	call __errno_location wrt ..plt

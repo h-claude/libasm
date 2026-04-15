@@ -16,5 +16,5 @@ ft_strcmp:
 	jmp .loop
 .end:
 	sub AL, DL
-	movzx RAX, AL
+	movsx RAX, AL
 	ret
