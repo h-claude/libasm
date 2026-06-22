@@ -25,17 +25,18 @@ ft_strdup:
 	test RDI, RDI
 	je .is_null
 	push RDI
-	mov RDI, [RSP]
+	push RDI
 	FT_STRLEN_FUNCTION RDI
 	lea RAX, [RAX + 1]
 	MALLOC_FUNCTION RAX
 	test RAX, RAX
 	je .fail
 	pop RSI
+	pop RSI
 	FT_STRCPY_FUNCTION RAX, RSI
 	ret
 .fail:
-	add rsp, 8
+	add rsp, 16
 	xor RAX, RAX
 	ret
 .is_null:
