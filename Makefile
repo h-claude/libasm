@@ -30,6 +30,9 @@ $(OBJDIR) :
 $(NAME) : $(OBJFILES)
 	$(AR) rcs $(NAME) $(OBJFILES)
 
+test : $(NAME) main.c
+	$(CC) $(CFLAGS) -o test main.c $(NAME)
+
 clean :
 	$(RM) $(OBJFILES) $(OBJFILES_C)
 	$(RM) $(OBJDIR)
@@ -37,6 +40,7 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME)
+	$(RM) test
 
 re : fclean all
 
