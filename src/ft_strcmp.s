@@ -4,8 +4,8 @@ section .text
 ft_strcmp:
 	xor RCX, RCX
 .loop:
-	mov AL, [RDI + RCX]
-	mov DL, [RSI + RCX]
+	movzx EAX, byte [RDI + RCX]
+	movzx EDX, byte [RSI + RCX]
 	test AL, AL
 	je .end
 	test DL, DL
@@ -15,6 +15,5 @@ ft_strcmp:
 	inc RCX
 	jmp .loop
 .end:
-	sub AL, DL
-	movsx RAX, AL
+	sub EAX, EDX
 	ret

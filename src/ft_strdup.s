@@ -22,23 +22,23 @@ extern ft_strcpy
 
 section .text
 ft_strdup:
+	push R12
 	test RDI, RDI
 	je .is_null
-	push RDI
-	push RDI
+	mov R12, RDI
 	FT_STRLEN_FUNCTION RDI
-	lea RAX, [RAX + 1]
+	inc RAX
 	MALLOC_FUNCTION RAX
 	test RAX, RAX
 	je .fail
-	pop RSI
-	pop RSI
-	FT_STRCPY_FUNCTION RAX, RSI
+	FT_STRCPY_FUNCTION RAX, R12
+	pop R12
 	ret
 .fail:
-	add rsp, 16
+	pop R12
 	xor RAX, RAX
 	ret
 .is_null:
+	pop R12
 	xor RAX, RAX
 	ret
